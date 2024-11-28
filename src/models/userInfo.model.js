@@ -5,6 +5,7 @@ const userInfoSchema = new Schema(
   {
     avatar: {
       type: String,
+      default : "",
     },
     name: {
       type: String,
@@ -12,7 +13,7 @@ const userInfoSchema = new Schema(
     },
     email: {
       type: String,
-      required: true,
+      required: [true, "Email is required"],
       unique: true,
     },
     password: {
@@ -24,6 +25,24 @@ const userInfoSchema = new Schema(
       type: String,
       enum: ["incharge", "core-member", "member"],
       required: true,
+    },
+    year: {
+      type: String,
+      enum: ["1st", "2nd", "3rd", "4th"],
+      required: true,
+    },
+    department: {
+      type: String,
+      enum: ["CE", "CSE", "ECE", "EE", "ME"],
+      required: true,
+    },
+    description: {
+      type: String,
+      default : "",
+    },
+    socials: {
+      type: [{ handle: String, link: String }],
+      default: [],
     },
   },
   {
