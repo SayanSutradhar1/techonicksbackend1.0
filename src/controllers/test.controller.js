@@ -1,3 +1,3 @@
 export function demoController(req,res){
-    res.send("demo works")
+    res.redirect('https://techonicks.vercel.app/')
 }
