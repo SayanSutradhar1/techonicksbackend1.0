@@ -37,7 +37,7 @@ export async function login(req, res) {
     return res.status(203).json({
       success: false,
       status: "I",
-      message: "Invalid password",
+      message: "Incorrect password",
     });
   }
 }
