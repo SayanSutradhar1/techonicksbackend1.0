@@ -12,8 +12,6 @@ export async function createUser(req, res) {
     });
   }
 
-  console.log(req.body);
-
   // image upload
 
   const image = await uploadFile();
@@ -24,7 +22,6 @@ export async function createUser(req, res) {
       message: "Failed to upload image",
     });
   }
-  console.log("Image uploaded successfully");
 
   const newUserInfo = await UserInfo.create({
     // avatar
@@ -38,7 +35,6 @@ export async function createUser(req, res) {
   });
 
   if (newUserInfo) {
-    console.log(newUserInfo);
     return res.status(200).json({
       success: true,
       status: "S",

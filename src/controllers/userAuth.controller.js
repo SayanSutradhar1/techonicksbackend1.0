@@ -19,8 +19,6 @@ export async function login(req, res) {
 
   if (isMatch) {
     const token = jwt.sign({ _id: user._id }, process.env.JWT_SECRET);
-    console.log(token);
-    console.log("user logged in successfully");
     return res
       .cookie("token", token, {
         expires: new Date(Date.now() + 60 * 60 * 10000000 * 10),
@@ -52,7 +50,6 @@ export async function logout(req, res) {
   }
 
   res.clearCookie("token");
-  console.log("User is logged out successfully");
   return res.status(200).json({
     success: true,
     status: "S",

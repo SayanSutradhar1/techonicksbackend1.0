@@ -3,7 +3,6 @@ export function isAuthenticated(req, res, next) {
   if (req.cookies.token) {
     next();
   } else {
-    console.log("User is not authenticated, Log in first!");
     res.status(200).json({
       success: false,
       status: "N",
@@ -16,7 +15,6 @@ export function isLoggedIn(req, res, next) {
   if (!req.cookies.token) {
     next();
   } else {
-    console.log("User is already logged in");
     res.status(201).json({
       success: true,
       status: "L",

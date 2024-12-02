@@ -1,5 +1,4 @@
 import { v2 as cloudinary } from "cloudinary";
-import fs from "fs";
 import path from "path";
 import { fileURLToPath } from "url";
 
@@ -13,8 +12,6 @@ const uploadFile = async () => {
     const response = await cloudinary.uploader.upload(localFilePath, {
       resource_type: "auto",
     });
-    console.log(response.url);
-    console.log(response.secure_url);
     return response.secure_url;
   } catch (error) {
     console.log(error);
